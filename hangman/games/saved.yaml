@@ -1,0 +1,26 @@
+--- !ruby/object:Game
+guesses_left: 2
+word:
+- u
+- n
+- e
+- n
+- d
+- u
+- r
+- a
+- b
+- l
+- e
+hidden_word:
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- l
+- _
