@@ -66,6 +66,7 @@ class Game
   end
 
   def random_word
+    #TO DO: make more efficient (currently creating large array).
     lines = File.foreach("words.txt").select do |x| 
       (6..12).include?(x.chomp.length) && x.downcase == x
     end
