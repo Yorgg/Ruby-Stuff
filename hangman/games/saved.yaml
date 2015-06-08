@@ -1,17 +1,17 @@
 --- !ruby/object:Game
-guesses_left: 2
+guesses_left: 10
 word:
-- u
-- n
-- e
-- n
-- d
-- u
+- p
+- a
 - r
 - a
-- b
 - l
-- e
+- l
+- a
+- c
+- t
+- i
+- c
 hidden_word:
 - _
 - _
@@ -22,5 +22,5 @@ hidden_word:
 - _
 - _
 - _
-- l
+- _
 - _

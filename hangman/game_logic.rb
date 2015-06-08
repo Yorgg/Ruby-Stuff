@@ -5,7 +5,7 @@ class Game
 
   def initialize
     @guesses_left =  10
-    @word         =  find_word
+    @word         =  random_word
     @hidden_word  =  hidden_word
   end 
 
@@ -21,13 +21,13 @@ class Game
   end
 
   def start_game
-  	while true do
+  	loop do
       return game_over if guesses_left == 0
       return player_wins if @word == @hidden_word
       guess = guess_letter
      
       if guess == 'save'
-      save_game
+        save 
       elsif @word.include?(guess)
   	  	puts "Correct!"
   	  	letters_index = find_letter_index(guess)
@@ -65,9 +65,9 @@ class Game
   	puts "You win."
   end
 
-  def find_word
-    lines = File.readlines("words.txt").select do |x| 
-      (6..12).include?(x.chomp.length)
+  def random_word
+    lines = File.foreach("words.txt").select do |x| 
+      (6..12).include?(x.chomp.length) && x.downcase == x
     end
     lines[rand(lines.length-1)].chomp.chars
   end
@@ -77,12 +77,10 @@ class Game
     YAML.load(content)  
   end
 
-  def save_game
+  def save
     Dir.mkdir('games') unless Dir.exist? 'games'
     filename = 'games/saved.yaml'
-    File.open(filename, 'w') do |file|
-      file.puts YAML.dump(self)
-    end
+    File.open(filename, 'w') {|file| YAML.dump(self, file)}
   end
 end
 

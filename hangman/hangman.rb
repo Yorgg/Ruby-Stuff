@@ -1,4 +1,4 @@
-require_relative'game_logic'
+require_relative 'game_logic'
  
 puts "load previous game? yes/no"
 input = gets.chomp
